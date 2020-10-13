@@ -33,21 +33,25 @@ int main()
     int i,j,k = 0;  //ele- number of rows and columns
 
     printf("Enter the number of rows and columns you want in the matrix.  ");
-    scanf( "%d", &k);
+    scanf( " %d", &k);
     int ele = k-1;
-    int Arr[(ele)][(ele)];  //Initialise the array
+    int Arr[ele][ele];  //Initialise the array
+
+    /* input the elements to the array*/
 
     for (i = 0; i <= ele; ++i)
     {
-        for ( j = i; j <= ele; ++j)
+        for ( j = 0; j <= ele; ++j)
         {
             printf("Enter Arr[(%d,%d] element ", (i+1), (j+1) );
             scanf("%d ", &Arr[i][j]);
         }
         
     }
-   
-    k=0;
+
+    /* Code to print the elements*/
+
+    k=0;  //index variables
     j=0;
 
     for ( k = 0; k <= ele; k++)
@@ -59,6 +63,9 @@ int main()
         printf("\n");
         
     }
+
+    // code to check the number of even numbers */
+
     k=0;
     j=0;
     i=0;
@@ -67,15 +74,49 @@ int main()
     {
         for ( j = k; j <=ele; j++)
         {
-            if (Arr[k][j]%2 == 0)
+            if (Arr[k][j]%2 == 0) //check whether the numebr is even
             {
-                i++;
+                i++;   //increase the count if the number is even
             }
             
         }
         
     }
     printf("\n \n Number of Even Numbers in the array is : %d \n", i);
+
+    /*! code to find the perfect squares if any across both diagonals */
+    
+    
+    i,j,k =0;
+    int l,m,n,p = 0;
+
+    for (i = 0; i <=ele ; ++i)
+    {
+        printf("Checking the elements for perfect squares");
+        k = Arr[i][i];  //main diagonal element
+        p=  Arr[i][ele-i-1];  //secondary diagonal element
+        for (l=0; l<k;l++)
+        {
+            if (l*l == k)  //checking for perfect squares
+            {
+                printf(" \n The Prime Numbers in main diagonal are : %d ", k);
+                n=1;     //counter to check whether prime numbers exist or not
+            }
+            else if (l*l==p)
+            {
+                printf("\n The prime numbers in the other diagonal are : %d ", p);
+                n=1;
+            }
+            
+        }
+    }
+
+    if (n==0)
+    {
+        printf("No Number statisfies the criteria");
+    }
+    
+    
     return 0;
 }
 
